@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import profileIcon from '../assets/profileIcon.png'
-// import profileIcon from '../assets/profileIcon.svg'
 
 const Bio = () => {
 
