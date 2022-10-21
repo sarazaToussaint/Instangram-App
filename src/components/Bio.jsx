@@ -1,16 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import profileIcon from '../assets/profileIcon.png'
 // import profileIcon from '../assets/profileIcon.svg'
 
 const Bio = () => {
+
+    const [userDetails, setUserDetails] = useState({
+       name: 'Toussaint Saraza',
+       about: 'Building newdv.io - Learn to code and conect with the best minds.'
+    });
+
+    const [editFormIsOpen, setEditFormIsOpen] = useState(false)
+
+    const updateUserDetails = (event) => {
+      event.preventDefault()
+      setUserDetails({
+        name: event.target.nameOfUser.value,
+        about: event.target.aboutUser.value,
+      })
+    }
   
     const editForm = (
-      <form className="edit-bio-form">
-        <input type="text" id="" placeholder="Your name" />
-        <input type="text" id="" placeholder="About you" />
+      <form className="edit-bio-form" onSubmit={(e) => updateUserDetails(e)}>
+        <input type="text" id="" name="nameOfUser" placeholder="Your name" />
+        <input type="text" id="" name="aboutUser"placeholder="About you" />
         <br />
-        <button type="button" className="cancel-button">Cancel</button>
-        <button type="button">Save</button>
+        <button type="button" className="cancel-button" onClick={() => setEditFormIsOpen(false)}>Cancel</button>
+        <button type="submit">Save</button>
       </form>
     )
 
@@ -20,10 +35,10 @@ const Bio = () => {
       <img src={profileIcon} alt='profile'/>
       </div>
       <div className="profile-info">
-        <p className="name">Toussaint Saraza</p>
-        <p className="about">Building newdv.io - Learn to code and conect with the best minds.</p>
-        <button>Edit</button>
-        {editForm}
+        <p className="name">{userDetails.name}</p>
+        <p className="about">{userDetails.about}</p>
+        
+        {editFormIsOpen ? editForm : <button onClick={() => setEditFormIsOpen(true)}>Edit</button> }
       </div>
     </section>
   )
