@@ -75,7 +75,7 @@ nav {
 }
 
 .profile-photo {
-  background: #000;
+  /* background: #000; */
   width: 10em;
   height: 10em;
   border-radius: 50%;
