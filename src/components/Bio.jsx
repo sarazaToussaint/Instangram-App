@@ -33,9 +33,13 @@ const Bio = () => {
 
   return (
     <section className="bio">
-      <div className="profile-photo" role="button" title="click to edit photo" >
-      <img src={profileIcon} alt='profile'/>
-      </div>
+      <input type="file" accept="image/*" name="photo" id="profilePhotoInput" />
+      <label htmlFor="profilePhotoInput">
+        <div className="profile-photo" role="button" title="click to edit photo" >
+          <img src={profileIcon} alt='profile'/>
+        </div>
+      </label>
+      
       <div className="profile-info">
         <p className="name">{userDetails.name}</p>
         <p className="about">{userDetails.about}</p>
