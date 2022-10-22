@@ -16,6 +16,7 @@ const Bio = () => {
         name: event.target.nameOfUser.value,
         about: event.target.aboutUser.value,
       })
+      setEditFormIsOpen(false)
     }
   
     const editForm = (
@@ -28,6 +29,8 @@ const Bio = () => {
       </form>
     )
 
+    const editButton =  <button onClick={() => setEditFormIsOpen(true)}>Edit</button>
+
   return (
     <section className="bio">
       <div className="profile-photo" role="button" title="click to edit photo" >
@@ -37,7 +40,7 @@ const Bio = () => {
         <p className="name">{userDetails.name}</p>
         <p className="about">{userDetails.about}</p>
         
-        {editFormIsOpen ? editForm : <button onClick={() => setEditFormIsOpen(true)}>Edit</button> }
+        {editFormIsOpen ? editForm : editButton }
       </div>
     </section>
   )
