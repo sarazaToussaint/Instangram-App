@@ -16,7 +16,9 @@ const Bio = () => {
     useEffect(() => {
       const setDataFromDb = async () => {
         const userDetailsFromDb = await db.bio.get('info')
+        const profilePhotoFromDb = await db.bio.get('profilePhoto')
         userDetailsFromDb && setUserDetails(userDetailsFromDb)
+        profilePhotoFromDb && setProfilePhoto(profilePhotoFromDb)
       }
       setDataFromDb()
     }, [])
@@ -35,6 +37,7 @@ const Bio = () => {
     const updateProfilePhoto = async () => {
       const newPrifilePhoto = await getPhotoUrl('#profilePhotoInput')
       setProfilePhoto(newPrifilePhoto)
+      await db.bio.put(newPrifilePhoto, 'profilePhoto')
     }
   
     const editForm = (
