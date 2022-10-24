@@ -33,9 +33,7 @@ const Bio = () => {
     }
 
     const updateProfilePhoto = async () => {
-      //get selected photo
       const newPrifilePhoto = await getPhotoUrl('#profilePhotoInput')
-      //update state here
       setProfilePhoto(newPrifilePhoto)
     }
   
