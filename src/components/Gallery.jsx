@@ -12,6 +12,10 @@ const Gallery = () => {
     })
   }
 
+  const removePhoto = (id) => {
+    db.gallery.delete(id);
+  }
+
   return (
     <>
       <input type="file" name="photo" id="addPhotoInput" />
@@ -23,7 +27,7 @@ const Gallery = () => {
          {allPhotos?.map((photo) => (
           <div className="item" key={photo.id}>
             <img src={photo.url} className="item-image" alt="" />
-            <button className="delete-button">
+            <button className="delete-button" onClick={() => {removePhoto(photo.id)}} >
               Delete
             </button>
           </div>
