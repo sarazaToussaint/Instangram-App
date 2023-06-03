@@ -31,7 +31,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Live Demo
 
-- [Check live]()
+- [Check live](instagram-web-app.netlify.app)
 
 ## Author
 
